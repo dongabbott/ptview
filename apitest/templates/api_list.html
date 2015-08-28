@@ -1,0 +1,142 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block content %}
+<section class="content">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <h3 class="box-title">目录</h3>
+          <div class="box-tools">
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          </div>
+        </div>
+        <div class="box-body no-padding">
+           <div class="sidebar">
+              <ul class="sidebar-menu">
+                <!-- Optionally, you can add icons to the links -->
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-folder-open" style="color: #101010">景点接口</i>
+
+                      <span class="label label-primary pull-right">12</span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#">景点详细</a></li>
+                    <li><a href="#">活动详细</a></li>
+                  </ul>
+                </li>
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-folder-open" style="color: #101010">活动接口</i>
+
+                      <span class="label label-primary pull-right">12</span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#">景点详细</a></li>
+                    <li><a href="#">活动详细</a></li>
+                  </ul>
+                </li>
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-folder-open" style="color: #101010">约接口</i>
+
+                      <span class="label label-primary pull-right">12</span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#">景点详细</a></li>
+                    <li><a href="#">活动详细</a></li>
+                  </ul>
+                </li>
+              </ul><!-- /.sidebar-menu -->
+           </div>
+        </div><!-- /.box-body -->
+      </div><!-- /. box -->
+    </div><!-- /.col -->
+    <div class="col-md-9">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">请求信息</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body no-padding">
+          <div class="mailbox-controls">
+            <!-- Check all button -->
+            <div class="btn-group">
+              <button class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+              <button class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
+              <button class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+            </div><!-- /.btn-group -->
+            <button class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+          </div>
+            <div class="box-body">
+              <form method="get" action="/api/apirun/">
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <select class="btn btn-danger">
+                        <option value="1">GET</option>
+                        <option value="2">POST</option>
+                        <option value="3">HEAD</option>
+                   </select>
+                </div><!-- /btn-group -->
+                <input type="text" id="url" class="form-control" placeholder="请填写URL地址">
+                  <div class="input-group-btn">
+                    <input type="button" id="run" class="btn btn-danger" value="运行">
+                  </div><!-- /btn-group -->
+              </div><!-- /input-group -->
+              </form>
+              <br>
+              <div id="pramaline"></div>
+              <br>
+              <div id="">
+              <div class="row">
+                <div class="col-md-12">
+                  <!-- Custom Tabs -->
+                  <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a href="#tab_1" data-toggle="tab">Body</a></li>
+                      <li><a href="#tab_2" data-toggle="tab">Headers</a></li>
+                      <li><a href="#tab_3" data-toggle="tab">Cookies</a></li>
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                          更多 <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                          <li role="presentation" class="divider"></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                        </ul>
+                      </li>
+                      <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="tab_1">
+                      {{ body }}
+                      </div><!-- /.tab-pane -->
+                      <div class="tab-pane" id="tab_2">
+                        The European languages are members of the same family. Their separate existence is a myth.
+                        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                        in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                        new common language would be desirable: one could refuse to pay expensive translators. To
+                        achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                        words. If several languages coalesce, the grammar of the resulting language is more simple
+                        and regular than that of the individual languages.
+                      </div><!-- /.tab-pane -->
+                      <div class="tab-pane" id="tab_3">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        It has survived not only five centuries, but also the leap into electronic typesetting,
+                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                        like Aldus PageMaker including versions of Lorem Ipsum.
+                      </div><!-- /.tab-pane -->
+                    </div><!-- /.tab-content -->
+                  </div><!-- nav-tabs-custom -->
+                </div><!-- /.col -->
+              </div> <!-- /.row -->
+            </div><!-- /.box-body -->
+        </div><!-- /.box-body -->
+      </div><!-- /. box -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</section><!-- /.content -->
+{% endblock %}
